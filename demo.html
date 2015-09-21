@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="form2object.js"></script>
+</head>
+
+<body>
+
+
+<input type="radio" value="按付款减库存" name="a" checked="checked">
+按付款减库存 <i class="space-60"></i>
+<input type="radio" value="按下单减库存" name="a">
+
+
+
+<select name="ee" class="span2-3">
+  <option value="1">1</option>
+  <option value="2">2</option>
+</select>
+
+<select name="ddd" multiple="multiple" class="span2-3">
+  <option value="1">1</option>
+  <option value="2" selected="selected">2</option>
+  <option value="3" selected="selected">3</option>
+  <option value="4">4</option>
+</select>
+
+
+<input type="hidden" index="0" f2o-define="a=[]"/>
+
+<input class="span2" type="text" value="333" name="a[2]"/>
+<input type="hidden" value="0" name="wwww=[]"/>
+<input type="hidden" value="1" name="wwww[2]={}"/>
+<input type="hidden" value="2" name="wwww[2].aaa=[]"/>
+<input type="hidden" value="3" name="wwww[2].aaa[4]={}"/>
+<input type="hidden" value="4" name="wwww[2].aaa[4].aa={}"/>
+
+<input class="span2" type="text" value="c111111" name="wwww[2].aaa[4].aa.c1"/>
+<textarea class="product-details-edit-area" name="textarea">
+sdsdfsdfsdf
+</textarea>
+</body>
+</html>
+<script>
+
+
+$(function(){
+	
+	console.log($('body').form2object());
+	
+});
+
+
+
+
+</script>
