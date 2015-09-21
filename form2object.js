@@ -7,9 +7,16 @@
 		$.fn.form2object=function(){
 			var obj={};
 			this.eq(0).find('input,select,textarea').each(function(index, element) {
-				var index,define_;
+				var index,define_,tmp;
             	if(this.name) {
-					if(this.type.toLowerCase()!='radio'||this.type.toLowerCase()!='checkbox'||this.checked) 
+					if(this.tagName.toLowerCase()=='select'&&this.multiple){
+						tmp=obj[this.name]=[];
+						$(this).children(':selected').each(function(index, element) {
+                            tmp.push(this.value);
+                        });
+					}else if(
+						(this.type.toLowerCase()=='radio'||this.type.toLowerCase()!='checkbox')&&this.checked||
+						(this.type.toLowerCase()!='radio'&&this.type.toLowerCase()!='checkbox')) 
 						obj[this.name]=this.value;
 				}else if((index=$(this).attr('index'))&&(define_=$(this).attr('define')||$(this).attr('f2o-define')))
 					obj[define_]=index;
