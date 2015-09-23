@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="form2object.js"></script>
+</head>
+
+<body>
+
+
+
+
+<input type="hidden" value="[]" of-name="wwww"/>
+<input type="hidden" value="{}" of-name="wwww[2]"/>
+<input type="hidden" value="{}" of-name="wwww[2][aa]"/>
+<input class="span2" type="text" value="c111111" of-set="wwww[2][aaa]"/>
+
+<textarea class="product-details-edit-area" name="textarea">
+sdsdfsdfsdf
+</textarea>
+
+
+</body>
+</html>
+<script>
+
+
+$(function(){
+	
+	console.log($('body').form2object());
+	
+});
+
+
+
+
+</script>
