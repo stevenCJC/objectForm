@@ -1,4 +1,4 @@
-define(["jquery",'utils/objectForm/typesSplit'], function ($,typesSplit) {
+define(["jquery",'typesSplit'], function ($,typesSplit) {
 
 
 
@@ -45,7 +45,8 @@ define(["jquery",'utils/objectForm/typesSplit'], function ($,typesSplit) {
 						name:name,
 						value:value,
 						val:this.value||'',
-						check:(this.type.toLowerCase() != 'hidden')&&types&&types.length,
+						check:types&&types.length,
+						// check:(this.type.toLowerCase() != 'hidden')&&types&&types.length,
 						types:types
 					});
 

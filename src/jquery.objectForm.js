@@ -1,83 +1,58 @@
-define(["jquery"], function ($) {
+define(["jquery",'pickData'], function ($,pickData) {
 
 
 
 		$.fn.objectForm=function(){
-			var obj={};
-			this.eq(0).find('input,select,textarea').each(function(index, element) {
-				var index,define_,tmp,dataType;
-				var $this=$(this);
-				dataType=$this.attr('of-type');// int float bool
-				
-            	if(this.name) {
-					if(this.tagName.toLowerCase()=='select'&&this.multiple){
-						tmp=obj[this.name]=[];
-						$(this).children(':selected').each(function(index, element) {
-                            tmp.push(convert(this.value,dataType));
-                        });
-					}else if(
-						(this.type.toLowerCase()=='radio'||this.type.toLowerCase()!='checkbox')&&this.checked||
-						(this.type.toLowerCase()!='radio'&&this.type.toLowerCase()!='checkbox')) 
-						obj[this.name]=convert(this.value,dataType);
-				}else if((index=$(this).attr('index'))&&(define_=$(this).attr('of-define')))
-					obj[define_]=parseInt(index);
-			});
-			return objectForm(obj);
+			return objectForm(pickData(this));
 		};
 		
-		function convert(val,type){
-			switch(type){
-				case 'int':
-				return parseInt(val)||0;
-				case 'float':
-				return parseFloat(val)||0;
-				case 'bool':
-				return !!val;
-				case 'string':
-				return val.toString();
-			}
-			return val.toString();
-		}
-		
+
 		function objectForm(obj){
 			
 			var object={};
 			var text='';
 			var group={};
-			var index,f2o_index,tmp_obj,name;
-			for(var x in obj) {
-				if((index=x.indexOf('='))>-1){
-					name=x.split(/\[|\{|\.|\=/g)[0];
-					f2o_index=parseInt(obj[x]);
+
+
+
+			var index,f2o_index,tmp_obj,name,name_splited;
+			for(var x=0;x<obj.length;x++) {
+				name_splited=obj[x].name.split(/\[|\{|\.|\=/g);
+				if((index=obj[x].name.indexOf('='))>-1){
+					name=name_splited[0];
+					f2o_index=parseInt(obj[x].value);
 					if(!group[name]){
-						tmp_obj={header:{},keys:{}};
-						group[name]=tmp_obj;
+						group[name]=tmp_obj={header:{},keys:{}};
 					}
 					tmp_obj=group[name];
-					tmp_obj.header[f2o_index]=x;
-					delete obj[x];
+					tmp_obj.header[f2o_index]=obj[x].name;
+					obj[x]=null;
 				}
 			}
-			
-			for(var x in obj) {
-				if(x.search(/\[|\{|\./g)>-1){
-					group[x.split(/\[|\{|\./g)[0]].keys[x]=obj[x];
+
+
+
+			for(var x =0;x <obj.length;x++) if(obj[x]){
+				if(obj[x].name.search(/\[|\{|\./g)>-1){
+					group[obj[x].name.split(/\[|\{|\./g)[0]].keys[x]=obj[x].name;
 				}else{
-					object[x]=obj[x];
+					object[obj[x].name]=obj[x].value;
 				}
 			}
+
 			var item,var_,shim_text;
 			text='(function(object,src_obj){';
 			for(var x in group){
 				
 				item=group[x];
 				
-				for(var h in item.header) 
+				for(var h in item.header) {
 					if(h==0)
 						text+='object["'+x+'"]=(function(){var '+item.header[h]+';';
 					else text+=item.header[h]+';';
-					
-				for(var k in item.keys) text+=k+'=src_obj["'+k+'"];';
+				}
+
+				for(var k in item.keys) text+=item.keys[k]+'=src_obj['+k+'].value;';
 				shim_text='';
 				for(var h in item.header) 
 					if(item.header[h].indexOf('=[]')>-1){
@@ -96,6 +71,7 @@ define(["jquery"], function ($) {
 			}catch(e){
 				throw 'Err: please check out the index or lack of define';
 			}
+
 			return object;
 		}
 });

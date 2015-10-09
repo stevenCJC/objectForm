@@ -1,0 +1,30 @@
+{
+  "name": "ObjectForm",
+  "description": "Make It Better !",
+  "version": "0.1.0",
+  "homepage": "https://github.com/stevenCJC/ObjectForm",
+  "author": {
+    "name": "Steven",
+    "email": "522702986@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stevenCJC/ObjectForm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stevenCJC/ObjectForm/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/stevenCJC/ObjectForm/blob/master/LICENSE-MIT"
+    }
+  ],
+  "keywords": [
+    "ObjectForm"
+  ],
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "requirejs": "^2.1.20"
+  }
+}
