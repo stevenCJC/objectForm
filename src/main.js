@@ -1,4 +1,4 @@
-require(["jquery.objectForm","jquery.objectFormValid"], function () {
+define(["jquery.objectForm","jquery.objectFormValid"], function () {
 
 
 

@@ -3,7 +3,7 @@ define(["jquery"], function ($) {
 
 
 
-	return function (types){
+	function typesSplit(types){
 		if(!types) types=[];
 		if(typeof types == 'string') types=types.replace(/\s/g,'').split(',');
 

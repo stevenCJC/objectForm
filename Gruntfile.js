@@ -1,6 +1,6 @@
 /*
- * GraceJS
- * https://github.com/stevenCJC/GraceJS
+ * objectForm
+ * https://github.com/stevenCJC/objectForm
  *
  * Copyright (c) 2014 Steven
  * Licensed under the MIT license.
@@ -18,36 +18,28 @@ module.exports = function(grunt) {
 		return data;
 	}
 
-	var gzip = require( "gzip-js" ),
-		srcHintOptions = readOptionalJSON( "src/.jshintrc" );
-
-	// The concatenated file won't pass onevar
-	// But our modules can
-	delete srcHintOptions.onevar;
-
 	grunt.initConfig({
 		pkg: grunt.file.readJSON( "package.json" ),
 		
-		built: {
+		build: {
 			$: {
 				dest: "dist/jquery.objectForm.js",
 				minimum: [
 					"main",
 				],
 				removeWith: {
-					$: [ "jquery" ],
+					jquery: [ "jquery" ],
 				},
 				config:{
 					baseUrl: "src",
 					name: "main",
 					out: "dist/jquery.objectForm.js",
 					wrap: {
-						startFile: "src/wrap/intro.js",
-						endFile: "src/wrap/outro.js"
+						startFile: "src/wrap/header.js",
+						endFile: "src/wrap/footer.js"
 					},
 					paths: {
 						jquery:'../demo/libs/jquery',
-						
 					},
 				}
 			}
@@ -79,9 +71,10 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.loadTasks( "built" );
+	grunt.loadTasks( "build" );
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask( "default", [ "built:*:*",'uglify' ] );
+	grunt.registerTask( "default", [ "build:*:-jquery",'uglify' ] );
   
 
 };

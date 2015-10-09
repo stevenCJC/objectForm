@@ -2,7 +2,7 @@ define(["jquery",'typesSplit'], function ($,typesSplit) {
 
 
 
-		return function($el){
+	function pickData($el){
 			var obj=[];
 			$el.find('input,select,textarea').not('[disabled]').each(function(index_, element) {
 

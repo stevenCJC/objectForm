@@ -68,7 +68,7 @@ module.exports = function( grunt ) {
 	}
 
 	grunt.registerMultiTask(
-		"built",
+		"build",
 		"Concatenate source, remove sub AMD definitions, (include/exclude modules with +/- flags), embed date/version",
 	function() {
 		
@@ -243,6 +243,6 @@ module.exports = function( grunt ) {
 
 		grunt.log.writeln( "Creating custom build...\n" );
 
-		grunt.task.run([ "built:*:*" + (modules ? ":" + modules : ""), "uglify" ]);
+		grunt.task.run([ "build:*:*" + (modules ? ":" + modules : ""), "uglify" ]);
 	});
 };
