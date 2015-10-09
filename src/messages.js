@@ -1,6 +1,6 @@
 define(["jquery",'pickData'], function ($,pickData) {
 
-	window.messages= {
+	var messages= {
 		required: "必选字段",
 		remote: "请修正该字段",
 		email: "请输入正确格式的电子邮件",
@@ -22,6 +22,7 @@ define(["jquery",'pickData'], function ($,pickData) {
 		min: "请输入一个最小为{0} 的值"
 	};
 	
-	return window.messages;
+	return messages;
+
 });
 

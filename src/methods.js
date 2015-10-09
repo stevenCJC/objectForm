@@ -5,7 +5,7 @@ define(["jquery",'pickData'], function ($,pickData) {
 
 
 
-	window.methods= {
+	var methods= {
 
 		required: function (el, value) {
 
@@ -105,8 +105,6 @@ define(["jquery",'pickData'], function ($,pickData) {
 
 	};
 	
-	return window.methods;
-
-
+	return methods;
 });
 

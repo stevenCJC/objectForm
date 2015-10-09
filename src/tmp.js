@@ -1,19 +1,18 @@
 (function (object, src_obj) {
 	object["aa"] = (function () {
-		var aa = [];
+		var aa = ;
 		aa[2] = src_obj[5].value;
-		aa = shimArr(aa);
 		return aa;
 	})();
 	object["wwww"] = (function () {
-		var wwww[2] = {};
+		var wwww = [];
+		wwww[2] = {};
 		wwww[2].aaa = [];
 		wwww[2].aaa[4] = {};
 		wwww[2].aaa[4].aa = {};
-		wwww = [];
 		wwww[2].aaa[4].aa.c1 = src_obj[11].value;
-		wwww = shimArr(wwww);
 		wwww[2].aaa = shimArr(wwww[2].aaa);
+		wwww = shimArr(wwww);
 		return wwww;
 	})();
 	function shimArr(arr) {

@@ -1,4 +1,4 @@
-define(["jquery",'pickData','var/messages','var/methods'], function ($, pickData, messages, methods) {
+define(["jquery",'pickData','messages','methods'], function ($, pickData, messages, methods) {
 
 
 

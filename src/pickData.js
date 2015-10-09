@@ -33,7 +33,7 @@ define(["jquery",'typesSplit'], function ($,typesSplit) {
 					}
 
 				}else if(define_=$(this).attr('of-define')){
-					if(define_.indexOf('=')==-1) define_=define_+'='+(types||{});
+					if(define_.indexOf('=')==-1) define_=define_+'='+(types.toString()||{});
 					value=index_;
 					name=define_;
 				}
