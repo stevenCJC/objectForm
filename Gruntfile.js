@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 		} catch ( e ) {}
 		return data;
 	}
-
+	
 	grunt.initConfig({
 		pkg: grunt.file.readJSON( "package.json" ),
 		
@@ -53,13 +53,11 @@ module.exports = function(grunt) {
 				},
 				options: {
 					preserveComments: false,
-					sourceMap: "dist/jquery.objectForm.min.map",
-					sourceMappingURL: "jquery.objectForm.min.map",
 					report: "min",
 					beautify: {
 						ascii_only: true
 					},
-					banner: "/*! jquery.objectForm v<%= pkg.version %> | " +
+					banner: "/*! jquery.objectForm v<%= pkg.version %>  created by StevenCJC Email:522702986@qq.com | " +
 						"(c) 2005, <%= grunt.template.today('yyyy') %> jquery.objectForm Foundation */",
 					compress: {
 						hoist_funs: false,
