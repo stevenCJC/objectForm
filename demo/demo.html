@@ -8,18 +8,18 @@
 <body>
 
 
-<input type="radio" value="按付款减库存" name="a" checked="checked">
+<input type="radio" value="按付款减库存" of-name="a" checked="checked">
 按付款减库存 <i class="space-60"></i>
-<input type="radio" value="按下单减库存" name="a">
+<input type="radio" value="按下单减库存" of-name="a">
 
 
 
-<select name="ee" class="span2-3">
+<select of-name="ee" class="span2-3">
   <option value="1">1</option>
   <option value="2">2</option>
 </select>
 
-<select name="ddd" multiple="multiple" class="span2-3">
+<select of-name="ddd" multiple="multiple" class="span2-3">
   <option value="1">1</option>
   <option value="2" selected="selected">2</option>
   <option value="3" selected="selected">3</option>
@@ -27,17 +27,21 @@
 </select>
 
 
-<input type="hidden" index="0" f2o-define="a=[]"/>
+<input type="hidden" value="[]" of-define="aa"/>
+<input class="span2" type="text" value="333" of-name="aa[2]"/>
 
-<input class="span2" type="text" value="333" name="a[2]"/>
-<input type="hidden" value="0" name="wwww=[]"/>
-<input type="hidden" value="1" name="wwww[2]={}"/>
-<input type="hidden" value="2" name="wwww[2].aaa=[]"/>
-<input type="hidden" value="3" name="wwww[2].aaa[4]={}"/>
-<input type="hidden" value="4" name="wwww[2].aaa[4].aa={}"/>
 
-<input class="span2" type="text" value="c111111" name="wwww[2].aaa[4].aa.c1"/>
-<textarea class="product-details-edit-area" name="textarea">
+
+<input type="hidden" of-type="[]" of-define="wwww"/>
+<input type="hidden" of-type="{}" of-define="wwww[2]"/>
+<input type="hidden" of-type="[]" of-define="wwww[2].aaa"/>
+<input type="hidden" of-type="{}" of-define="wwww[2].aaa[4]"/>
+<input type="hidden" of-type="{}" of-define="wwww[2].aaa[4].aa"/>
+
+<input class="span2" type="text" value="c111111" of-name="wwww[2].aaa[4].aa.c1"/>
+
+
+<textarea class="product-details-edit-area" of-name="textarea">
 sdsdfsdfsdf
 </textarea>
 </body>

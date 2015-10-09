@@ -4,6 +4,10 @@ define(["jquery"], function ($) {
 
 
 	function typesSplit(types){
+		
+		if(types=='[]'||types=='array')return '[]';
+		if(types=='{}'||types=='object')return '{}';
+		
 		if(!types) types=[];
 		if(typeof types == 'string') types=types.replace(/\s/g,'').split(',');
 
@@ -17,7 +21,6 @@ define(["jquery"], function ($) {
 	}
 
 
-
-
+	return typesSplit;
 });
 

@@ -6,7 +6,7 @@ define(["jquery",'typesSplit'], function ($,typesSplit) {
 			var obj=[];
 			$el.find('input,select,textarea').not('[disabled]').each(function(index_, element) {
 
-				var index,define_,tmp,types,name,value;
+				var define_,tmp,types,name,value;
 
 				var $this=$(this);
 
@@ -32,8 +32,9 @@ define(["jquery",'typesSplit'], function ($,typesSplit) {
 						value=convert(this.value,types);
 					}
 
-				}else if((index=$(this).attr('index'))&&(define_=$(this).attr('of-define'))){
-					value=parseInt(index);
+				}else if(define_=$(this).attr('of-define')){
+					if(define_.indexOf('=')==-1) define_=define_+'='+(types||{});
+					value=index_;
 					name=define_;
 				}
 
@@ -70,7 +71,7 @@ define(["jquery",'typesSplit'], function ($,typesSplit) {
 			return val.toString();
 		}
 		
-
+	return pickData;
 });
 	
 
