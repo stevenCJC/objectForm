@@ -24,12 +24,11 @@ define(["jquery",'typesSplit'], function ($,typesSplit) {
 						}else{
 							value=convert(this.value,types);
 						}
-					}else if(
-						(this.type.toLowerCase()=='radio'||this.type.toLowerCase()!='checkbox')&&this.checked||
-						(this.type.toLowerCase()!='radio'&&this.type.toLowerCase()!='checkbox')) {
-						value=convert(this.value,types);
-					}else{
-						value=convert(this.value,types);
+					}else if (this.type.toLowerCase() == 'radio' || this.type.toLowerCase() == 'checkbox') {
+						if (!this.checked) name = null;
+						else value = convert(this.value, types);
+					} else {
+						value = convert(this.value, types);
 					}
 
 				}else if(define_=$(this).attr('of-define')){
